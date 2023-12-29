@@ -1,0 +1,16 @@
+{
+    "name": "JsonAssets",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b0b3f4689acea4a47b71f40aaeeca774"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
