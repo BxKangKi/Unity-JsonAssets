@@ -2,7 +2,9 @@ using UnityEngine;
 
 namespace JsonAssets {
     [System.Serializable]
-    public class MeshAsset {
+    public class MeshAsset : JsonAsset {
+        public string UUID;
+        public string name = "";
         public int index;
         public Vector3[] vertices;
         public Vector3[] normals;

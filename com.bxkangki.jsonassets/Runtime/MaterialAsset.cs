@@ -2,7 +2,9 @@ using UnityEngine;
 
 namespace JsonAssets {
     [System.Serializable]
-    public class MaterialAsset {
+    public class MaterialAsset : JsonAsset {
+        public string UUID;
+        public string name = "";
         public string shader;
         public bool instancing;
         public TextureProperty[] textures;
