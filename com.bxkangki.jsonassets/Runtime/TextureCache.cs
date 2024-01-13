@@ -6,7 +6,6 @@ namespace JsonAssets {
 
         public TextureCache(Texture2D tex) {
             this.value = tex;
-            Refer();
         }
         public Texture2D Value { get { return value; } }
 

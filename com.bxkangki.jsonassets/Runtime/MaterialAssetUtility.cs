@@ -3,12 +3,6 @@ using UnityEngine;
 
 namespace JsonAssets {
     public static class MaterialAssetUtility {
-        private static readonly Dictionary<string, MaterialCache> caches = new Dictionary<string, MaterialCache>();
-
-        public static void Clear() {
-            caches.Clear();
-        }
-
         public static MaterialAsset SaveMaterial(Material mat) {
             MaterialAsset result = new MaterialAsset
             {
@@ -76,34 +70,29 @@ namespace JsonAssets {
         }
 
 
-        public static Material LoadMaterial(MaterialAsset asset, string texPath) {
-            Material result = null;
-            if (caches.ContainsKey(asset.UUID)) {
-                caches[asset.UUID].Refer();
-                result = caches[asset.UUID].Value;
-            } else {
-                result = new Material(Shader.Find(asset.shader))
-                {
-                    name = asset.name
-                };
-                for (int i = 0; i < asset.textures.Length; i++) {
-                    result.SetTexture(asset.textures[i].keyword, TextureAssetUtility.LoadTexture(asset.textures[i].value, texPath));
-                }
-                for (int i = 0; i < asset.floats.Length; i++) {
-                    result.SetFloat(asset.floats[i].keyword, asset.floats[i].value);
-                }
-                for (int i = 0; i < asset.vectors.Length; i++) {
-                    result.SetVector(asset.vectors[i].keyword, asset.vectors[i].value);
-                }
-                for (int i = 0; i < asset.integers.Length; i++) {
-                    result.SetInteger(asset.integers[i].keyword, asset.integers[i].value);
-                }
-                for (int i = 0; i < asset.matrices.Length; i++) {
-                    result.SetMatrix(asset.matrices[i].keyword, asset.matrices[i].value);
-                }
-                result.enableInstancing = asset.instancing;
-                caches.Add(asset.UUID, new MaterialCache(result));
+        public static Material LoadMaterial(MaterialAsset asset, string texPath, out string[] textureNames) {
+            var result = new Material(Shader.Find(asset.shader))
+            {
+                name = asset.name
+            };
+            textureNames = new string[asset.textures.Length];
+            for (int i = 0; i < asset.textures.Length; i++) {
+                result.SetTexture(asset.textures[i].keyword, TextureAssetUtility.LoadTexture(asset.textures[i].value, texPath));
+                textureNames[i] = asset.textures[i].value.name;
             }
+            for (int i = 0; i < asset.floats.Length; i++) {
+                result.SetFloat(asset.floats[i].keyword, asset.floats[i].value);
+            }
+            for (int i = 0; i < asset.vectors.Length; i++) {
+                result.SetVector(asset.vectors[i].keyword, asset.vectors[i].value);
+            }
+            for (int i = 0; i < asset.integers.Length; i++) {
+                result.SetInteger(asset.integers[i].keyword, asset.integers[i].value);
+            }
+            for (int i = 0; i < asset.matrices.Length; i++) {
+                result.SetMatrix(asset.matrices[i].keyword, asset.matrices[i].value);
+            }
+            result.enableInstancing = asset.instancing;
             return result;
         }
     }
