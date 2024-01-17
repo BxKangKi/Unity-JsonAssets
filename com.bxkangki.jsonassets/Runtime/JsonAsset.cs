@@ -1,4 +1,5 @@
-namespace JsonAssets {
+namespace JsonAssets
+{
     [System.Serializable]
-    public abstract class JsonAsset {}
+    public abstract class JsonAsset { }
 }

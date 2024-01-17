@@ -1,18 +1,23 @@
-namespace JsonAssets {
-    public class AssetCache {
+namespace JsonAssets
+{
+    public class AssetCache
+    {
         private int referCount;
         public int ReferCount { get { return referCount; } }
-        public void Refer() {
+        public void Refer()
+        {
             this.referCount++;
         }
 
-        public void Return() {
+        public void Return()
+        {
             --this.referCount;
-            if (this.referCount <= 0) {
+            if (this.referCount <= 0)
+            {
                 Unload();
             }
         }
 
-        protected virtual void Unload() {}
+        protected virtual void Unload() { }
     }
 }

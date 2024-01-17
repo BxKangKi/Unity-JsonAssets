@@ -1,8 +1,10 @@
 using UnityEngine;
 
-namespace JsonAssets {
+namespace JsonAssets
+{
     [System.Serializable]
-    public class TextureAsset : JsonAsset {
+    public class TextureAsset : JsonAsset
+    {
         public string name = null;
         public string extension = TextureAssetUtility.BaseExtension;
         public int width = 2048;
@@ -11,7 +13,8 @@ namespace JsonAssets {
         public int mipCount = -1;
         public bool linear = false;
 
-        public TextureAsset (string n, string ext = TextureAssetUtility.BaseExtension, int w = TextureAssetUtility.BaseTextureSize, int h = TextureAssetUtility.BaseTextureSize, TextureFormat f = TextureFormat.RGBA32, int m = -1, bool l = false) {
+        public TextureAsset(string n, string ext = TextureAssetUtility.BaseExtension, int w = TextureAssetUtility.BaseTextureSize, int h = TextureAssetUtility.BaseTextureSize, TextureFormat f = TextureFormat.RGBA32, int m = -1, bool l = false)
+        {
             this.name = n;
             this.extension = ext;
             this.width = w;

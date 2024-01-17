@@ -1,8 +1,10 @@
 using UnityEngine;
 
-namespace JsonAssets {
+namespace JsonAssets
+{
     [System.Serializable]
-    public class MeshAsset : JsonAsset {
+    public class MeshAsset : JsonAsset
+    {
         public string UUID;
         public string name = "";
         public int index;

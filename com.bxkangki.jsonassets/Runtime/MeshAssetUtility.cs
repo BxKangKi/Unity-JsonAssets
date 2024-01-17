@@ -1,10 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace JsonAssets {
-    public static class MeshAssetUtility {
+namespace JsonAssets
+{
+    public static class MeshAssetUtility
+    {
 
-        public static MeshAsset SaveMesh(Mesh value) {
+        public static MeshAsset SaveMesh(Mesh value)
+        {
             MeshAsset result = new MeshAsset
             {
                 vertices = value.vertices,
@@ -27,7 +30,8 @@ namespace JsonAssets {
             return result;
         }
 
-        public static Mesh LoadMesh(MeshAsset value) {
+        public static Mesh LoadMesh(MeshAsset value)
+        {
             var result = new Mesh
             {
                 name = value.name
